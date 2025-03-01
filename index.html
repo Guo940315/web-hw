@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>和欣客運 - 服務暫時中斷</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    .header {
+      background: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #2d2d2d;
+    }
+    .logo {
+      height: 50px;
+    }
+    .nav {
+      background: #2d2d2d;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 16px;
+    }
+    .nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      padding: 10px;
+      transition: background 0.3s;
+    }
+    .nav a:hover {
+      background: red;
+      border-radius: 5px;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: 50px auto;
+      text-align: center;
+    }
+    h1 {
+      color: #d9534f;
+    }
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+    .refresh-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .refresh-btn:hover {
+      background-color: #0056b3;
+    }
+    .queue-info {
+      font-size: 16px;
+      color: #d9534f;
+      margin-top: 10px;
+    }
+    /* 登入按鈕樣式 */
+    .login-btn {
+      background-color: white; /* 背景改為白色 */
+      color: #2d2d2d; /* 預設文字顏色 */
+      padding: 8px 16px;
+      font-size: 16px;
+      border: none; /* 去除邊框 */
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s ease; /* 文字顏色過渡效果 */
+    }
+    /* 滑鼠懸停時文字顏色變紅 */
+    .login-btn:hover {
+      color: #dc3545; /* 滑鼠懸停時文字變為紅色 */
+    }
+    /* 動畫背景 (只有在懸停時顯示) */
+    .login-btn:hover::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: #ccc; /* 灰白色背景 */
+      transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+      border-radius: 50%;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+    }
+    /* 防止未懸停時顯示動畫背景 */
+    .login-btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: #ccc;
+      transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+      border-radius: 50%;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+    }
+    .login-btn span {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+  <script>
+    function updateQueueNumber() {
+      document.getElementById("queue-number").innerText = Math.floor(Math.random() * 500) + 1;
+    }
+    setInterval(updateQueueNumber, 5000);
+  </script>
+</head>
+<body onload="updateQueueNumber()">
+<div class="header">
+  <img src="img/LOGO.png" alt="和欣客運 Logo" class="logo">
+  <!-- 登入按鈕 -->
+  <button class="login-btn"><span>登入</span></button>
+</div>
+<div class="nav">
+  <a href="#">網路訂購票</a> | <a href="#">查詢/變更訂單</a> | <a href="#">乘車資訊</a> | <a href="#">會員專區</a> | <a href="#">乘客服務</a>
+</div>
+<div class="container">
+  <h1>服務暫時中斷</h1>
+  <p class="queue-info">目前排隊等候人數：約 <span id="queue-number">...</span> 人</p>
+  <p>親愛的旅客，您好：</p>
+  <p>目前和欣客運的訂票系統正在進行維護或因流量過大暫時無法使用。我們正努力恢復服務，請稍後再試。</p>
+  <p>請勿重複付款，如已完成付款但未收到訂票確認信，請稍後查閱電子郵件，或聯繫客服確認。</p>
+  <button class="refresh-btn" onclick="location.reload();">重新整理</button>
+  <p style="margin-top: 20px; font-size: 14px; color: #666;">您也可以撥打客服專線：0800-XXX-XXX，謝謝您的耐心等待！</p>
+</div>
+</body>
+</html>
+
