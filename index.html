@@ -88,42 +88,21 @@
     .login-btn:hover {
       color: #dc3545;
     }
-    .login-btn:hover::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 300%;
-      height: 300%;
-      background: #ccc;
-      transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
-      border-radius: 50%;
-      z-index: 0;
-      transform: translate(-50%, -50%);
-    }
-    .login-btn::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: #ccc;
-      transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
-      border-radius: 50%;
-      z-index: 0;
-      transform: translate(-50%, -50%);
-    }
-    .login-btn span {
-      position: relative;
-      z-index: 1;
-    }
   </style>
   <script>
     function updateQueueNumber() {
       document.getElementById("queue-number").innerText = Math.floor(Math.random() * 500) + 1;
     }
     setInterval(updateQueueNumber, 5000);
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll(".nav a").forEach(function(link) {
+        link.addEventListener("click", function(event) {
+          event.preventDefault();
+          location.reload();
+        });
+      });
+    });
   </script>
 </head>
 <body onload="updateQueueNumber()">
